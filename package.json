@@ -9,5 +9,5 @@
   "keywords": [],
   "author": "Neeraj Gir",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "module"
 }
