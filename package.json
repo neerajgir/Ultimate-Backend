@@ -1,13 +1,13 @@
 {
   "name": "ultimate-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "its all about backend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Neeraj Gir",
   "license": "ISC",
   "type": "commonjs"
 }
