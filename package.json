@@ -4,7 +4,7 @@
   "description": "its all about backend",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "Neeraj Gir",
@@ -12,6 +12,7 @@
   "type": "module",
   "dependencies": {
     "express": "^5.2.1",
-    "gitignore": "^0.7.0"
+    "gitignore": "^0.7.0",
+    "nodemon": "^3.1.14"
   }
 }
