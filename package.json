@@ -9,5 +9,9 @@
   "keywords": [],
   "author": "Neeraj Gir",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1",
+    "gitignore": "^0.7.0"
+  }
 }

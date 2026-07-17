@@ -1,18 +1,12 @@
-import http from "http";
+import express from "express"
 
-const server = http.createServer((req, res)=>{
-    if(req.url=="/"){
-        res.end("Welcome to Homepage")
-    }else if(req.url == "/about"){
-        res.end("Welcome to About Page")
-    }else if(req.url == "/contact"){
-        res.end("Welcome to Contact Page")
-    }else{
-        res.end("404 Not Found")
-    }
+const app = express();
+
+app.get("/", (req, res)=>{
+    res.send("Hello Welcome To express")
 })
 
-server.listen(3000, ()=>{
-    console.log("server is running on port 3000");
-});
+app.listen(3000, ()=>{
+    console.log("Server is running on port 3000");
+})
 
