@@ -54,6 +54,11 @@ app.get("/user/:id", (req,res)=>{
     res.json(existingUser)
 })
 
+app.get("/search",(req,res)=>{
+    const query =  req.query
+    res.json(query)
+})
+
 app.listen(3000, ()=>{
     console.log("Server is running on port 3000");
 })
