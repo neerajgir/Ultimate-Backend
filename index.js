@@ -70,7 +70,7 @@ app.use((req,res,next)=>{
 
 app.post("/",(req,res)=>{
   console.log(req.body);
-  res.send({success: true})
+  res.status(200).send({success: true})
 })
 
 
