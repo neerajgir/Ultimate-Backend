@@ -59,6 +59,21 @@ app.get("/search",(req,res)=>{
     res.json(query)
 })
 
+const password = "Neeraj122";
+
+app.use((req,res,next)=>{
+  if(req.body.pass !== password){
+    res.send("pass does not match")
+  }
+  next()
+})
+
+app.post("/",(req,res)=>{
+  console.log(req.body);
+  res.send({success: true})
+})
+
+
 app.listen(3000, ()=>{
     console.log("Server is running on port 3000");
 })
