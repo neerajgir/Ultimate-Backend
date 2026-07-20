@@ -89,6 +89,17 @@ app.get("/retrieve/:userName", async (req,res)=>{
   }
 })
 
+app.put("/update/:id", async (req,res) => {
+  try {
+    const {name, age} = req.body
+    const id = req.params.id
+    const user = await User.findByIdAndUpdate(id, {name, age}, {returnDocument: "after"})
+    return res.status(200).json(user)
+  } catch (error) {
+    return res.status(400).json({message: "user not found", error})
+  }
+})
+
 app.listen(3000, ()=>{
     connectDB()
     console.log("Server is running on port 3000");
