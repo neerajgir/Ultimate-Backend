@@ -73,7 +73,7 @@ app.post("/create", async (req,res)=>{
 
 app.get("/retrieve", async (req,res)=>{
   try {
-    const users = await User.find()
+    const users = await User.find({name: {$eq : "neeraj"}})
     return res.status(200).json(users)
   } catch (error) {
     return res.status(400).json("message: user not found ", error)
