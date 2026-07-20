@@ -80,6 +80,15 @@ app.get("/retrieve", async (req,res)=>{
   }
 })
 
+app.get("/retrieve/:userName", async (req,res)=>{
+  try {
+    const users = await User.findOne({userName: req.params.userName})
+    return res.status(200).json(users)
+  } catch (error) {
+    return res.status(400).json("message: user not found ", error)
+  }
+})
+
 app.listen(3000, ()=>{
     connectDB()
     console.log("Server is running on port 3000");
