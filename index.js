@@ -110,7 +110,15 @@ app.put("/update", async (req,res) => {
   }
 })
 
-
+app.delete("/delete/:id", async (req,res) => {
+  try {
+    const id = req.params.id
+    const user = await User.findByIdAndDelete(id)
+    return res.status(200).json({meesage: "user deleted successfully"})
+  } catch (error) {
+    return res.status(400).json({message: "user not found", error})
+  }
+})
 
 app.listen(3000, ()=>{
     connectDB()
