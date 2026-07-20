@@ -1,7 +1,20 @@
 import express from "express"
+import mongoose from "mongoose"
+
 
 const app = express();
 app.use(express.json());
+
+const MONGODB_URI = "mongodb+srv://neeraj:Neeraj@cluster0.vk19rqu.mongodb.net/UltimateBackend"
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(MONGODB_URI)
+    console.log("DB Connect");
+  } catch (error) {
+    console.log("database error: ", error);
+  }
+}
 
 app.get("/", (req, res)=>{
     res.send("Hello Welcome To Express")
@@ -15,38 +28,6 @@ app.get("/contact", (req, res)=>{
     res.send("Hello Welcome To Contact Page")
 })
 
-let users = [
-  {
-    "id": 1,
-    "name": "Alice Johnson",
-    "department": "Engineering",
-    "email": "alice.johnson@example.com"
-  },
-  {
-    "id": 2,
-    "name": "Bob Smith",
-    "department": "Design",
-    "email": "bob.smith@example.com"
-  },
-  {
-    "id": 3,
-    "name": "Carlos Mendez",
-    "department": "Marketing",
-    "email": "carlos.mendez@example.com"
-  },
-  {
-    "id": 4,
-    "name": "Diana Prince",
-    "department": "Product Management",
-    "email": "diana.prince@example.com"
-  },
-  {
-    "id": 5,
-    "name": "Evan Wright",
-    "department": "Data Science",
-    "email": "evan.wright@example.com"
-  }
-]
 
 app.get("/user/:id", (req,res)=>{
     const id = req.params.id
@@ -76,6 +57,7 @@ app.post("/",(req,res)=>{
 
 
 app.listen(3000, ()=>{
+    connectDB()
     console.log("Server is running on port 3000");
 })
 
