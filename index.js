@@ -73,7 +73,7 @@ app.post("/create", async (req,res)=>{
 
 app.get("/retrieve", async (req,res)=>{
   try {
-    const users = await User.find({name: {$eq : "neeraj"}})
+    const users = await User.find()
     return res.status(200).json(users)
   } catch (error) {
     return res.status(400).json("message: user not found ", error)
@@ -99,6 +99,18 @@ app.put("/update/:id", async (req,res) => {
     return res.status(400).json({message: "user not found", error})
   }
 })
+
+app.put("/update", async (req,res) => {
+  try {
+    const {name, age, email} = req.body
+    const user = await User.updateOne({email}, {name, age}, {returnDocument: "after"})
+    return res.status(200).json({message: "user updated successfully", user})
+  } catch (error) {
+    return res.status(400).json({message: "user not found", error})
+  }
+})
+
+
 
 app.listen(3000, ()=>{
     connectDB()
